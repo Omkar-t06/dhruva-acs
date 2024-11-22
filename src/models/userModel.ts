@@ -47,6 +47,7 @@ export interface User extends Document {
     verifyCodeExpiry: Date;
     isVerified: boolean;
     isAdmin: boolean;
+    isAccecptingComplaints?: boolean;
     complaints: Complaint[];
 }
 
@@ -76,6 +77,10 @@ const UserSchema: Schema<User> = new mongoose.Schema({
       required: [true, 'Verify Code Expiry is required'],
     },
     isVerified: {
+      type: Boolean,
+      default: false,
+    },
+    isAccecptingComplaints: {
       type: Boolean,
       default: false,
     },
